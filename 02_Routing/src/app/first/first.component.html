@@ -1,0 +1,36 @@
+<!-- interpolation -->
+<h1 *ngIf="title">
+    {{title}}
+</h1>
+
+<ul *ngFor="let item of items">
+    <li>
+        <p>
+            {{item}}
+        </p>
+    </li>
+</ul>
+
+
+<!-- sum -->
+<p>
+   Sum: 20 + 10 =     {{ sum() }}
+</p>
+
+
+<!-- data send from component to service -->
+<p>
+    {{ message() }}
+</p>
+
+
+<!-- data send from service to component  -->
+<!-- value send by 'sendValue()' from 'first.component.ts' and receaving 'getValue()' from 'channel.service.ts' -->
+<p>
+    {{ sendValue() }}
+</p>
+
+
+<p>
+    {{ dValueF() }}
+</p>
