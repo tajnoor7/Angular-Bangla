@@ -19,8 +19,8 @@ export class FirstComponent {
   ]
 
 
-  // all services from "ChannelService" will be initialized/used within "FirstComponent" class
-  constructor(private channelService: ChannelService) {  //channelService: ChannelService => ref_variable: service name
+  // all services from "channel.service.ts" will be initialized/used within "first.component.ts" class
+  constructor(private channelService: ChannelService) {  //channelService: ChannelService => ref_variable: service_name
 
   }
 
@@ -59,6 +59,6 @@ export class FirstComponent {
     return this.channelService.getValue(this.sendV);
   }
 
-  
+
 
 }

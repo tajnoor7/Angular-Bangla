@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { DependServiceService } from './depend-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChannelService {
 
-  constructor() { }
+
+  // all services from "depend.service.ts" will be initialized/used within "channel.service.ts" class
+  constructor(private dependService: DependServiceService) { } //dependService: DependServiceService => ref_variable: service_name
 
   //function
   display(){
