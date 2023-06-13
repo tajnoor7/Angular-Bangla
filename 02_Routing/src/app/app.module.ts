@@ -5,11 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
-import { RouterModule, Routes } from '@angular/router';  //imported
+import { RouterModule, Routes } from '@angular/router';
+import { FaComponent } from './fa/fa.component';
+import { FbComponent } from './fb/fb.component';  //imported
 
 const routes: Routes = [
   {
-    path: '', component: FirstComponent
+    path: '', component: FirstComponent,
+    children: [
+      {
+        path: 'child-a', component: FaComponent
+      },{
+        path: 'child-b', component: FbComponent
+      }
+    ]
   },{
     path: 's', component: SecondComponent
   }
@@ -19,7 +28,9 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     FirstComponent,
-    SecondComponent
+    SecondComponent,
+    FaComponent,
+    FbComponent
   ],
   imports: [
     BrowserModule,

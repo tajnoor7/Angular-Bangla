@@ -12,3 +12,11 @@ button{
     font-weight:bolder;
     background-color: rgb(102, 76, 205);
 }
+
+#firstChild{
+    color: rgb(24, 24, 24);
+    background-color: bisque;
+    margin: 1rem;
+    width: 93px;
+    height: 30px;
+}

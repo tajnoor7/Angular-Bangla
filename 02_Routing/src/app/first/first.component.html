@@ -1,3 +1,10 @@
+
 <h1>First Component</h1>
 
 <button [routerLink]="['/s']">Go to Second Component</button>
+<br>
+<br>
+<button [routerLink]="['child-a']" id="firstChild">Child A</button>
+<button [routerLink]="['child-b']" id="firstChild">Child B</button>
+
+<router-outlet></router-outlet>
