@@ -1,6 +1,6 @@
 h1{
     text-align: center;
-    color: rgb(123, 141, 4);
+    color: rgb(102, 76, 205);
     font-weight: bolder;
     font-size: 3rem;
 }
@@ -10,5 +10,5 @@ button{
     width: 250px;
     height: 40px;
     font-weight:bolder;
-    background-color: bisque;
+    background-color: rgb(9, 162, 62);
 }
