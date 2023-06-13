@@ -11,4 +11,21 @@ button{
     height: 40px;
     font-weight:bolder;
     background-color: rgb(9, 162, 62);
+    border-radius: 30px;
+}
+button:hover{
+    background-color: rgb(84, 138, 103);
+}
+
+
+#firstChild{
+    color: rgb(24, 24, 24);
+    background-color: rgb(115, 191, 187);
+    margin: 1rem;
+    width: 93px;
+    height: 30px;
+}
+#firstChild:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(75, 143, 139);
 }

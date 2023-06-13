@@ -5,24 +5,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
-import { RouterModule, Routes } from '@angular/router';
+// import { RouterModule, Routes } from '@angular/router';
 import { FaComponent } from './fa/fa.component';
-import { FbComponent } from './fb/fb.component';  //imported
+import { FbComponent } from './fb/fb.component';
+import { SaComponent } from './sa/sa.component';
+import { SbComponent } from './sb/sb.component';  //imported
 
-const routes: Routes = [
-  {
-    path: '', component: FirstComponent,
-    children: [
-      {
-        path: 'child-a', component: FaComponent
-      },{
-        path: 'child-b', component: FbComponent
-      }
-    ]
-  },{
-    path: 's', component: SecondComponent
-  }
-]
+// const routes: Routes = [
+//   {
+//     path: '', component: FirstComponent,
+//     children: [
+//       {
+//         path: 'child-a', component: FaComponent
+//       },{
+//         path: 'child-b', component: FbComponent
+//       }
+//     ]
+//   },{
+//     path: 's', component: SecondComponent
+//   }
+// ]
 
 @NgModule({
   declarations: [
@@ -30,12 +32,14 @@ const routes: Routes = [
     FirstComponent,
     SecondComponent,
     FaComponent,
-    FbComponent
+    FbComponent,
+    SaComponent,
+    SbComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    // RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

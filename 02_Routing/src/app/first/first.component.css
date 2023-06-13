@@ -1,3 +1,4 @@
+
 h1{
     text-align: center;
     color: rgb(9, 162, 62);
@@ -11,6 +12,10 @@ button{
     height: 40px;
     font-weight:bolder;
     background-color: rgb(102, 76, 205);
+    border-radius: 30px;
+}
+button:hover{
+    background-color: rgb(153, 135, 225);
 }
 
 #firstChild{
@@ -19,4 +24,8 @@ button{
     margin: 1rem;
     width: 93px;
     height: 30px;
+}
+#firstChild:hover {
+    color: rgb(79, 75, 75);
+    background-color: rgb(244, 195, 136);
 }
