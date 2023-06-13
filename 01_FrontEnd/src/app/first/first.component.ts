@@ -54,11 +54,15 @@ export class FirstComponent {
   }
 
 
-  // getValue() <= from "channel.service.ts"
+  // getValue() <= "channel.service.ts"
   sendValue(){
     return this.channelService.getValue(this.sendV);
   }
 
+  // dValue() <= "channel.service.ts"
+  dValueF(){
+    return this.channelService.dValue();
+  }
 
 
 }

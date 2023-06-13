@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class DependServiceService {
 
-  message = "My depend service data";
+  message = "this data is from depend.service.ts via  {'first.component.ts / 'channel.service.ts'} ";
 
-  constructor() { }
+  constructor() { } 
 
   // for using this 'log()' from 'channel.service.ts' => inject 'depend service' within constructor() of 'channel.service.ts'
   log(){

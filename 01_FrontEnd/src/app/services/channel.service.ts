@@ -8,7 +8,9 @@ export class ChannelService {
 
 
   // all services from "depend.service.ts" will be initialized/used within "channel.service.ts" class
-  constructor(private dependService: DependServiceService) { } //dependService: DependServiceService => ref_variable: service_name
+  constructor(private dependService: DependServiceService) {  //dependService: DependServiceService => ref_variable: service_name
+    console.log(dependService.log());
+  }
 
   //function
   display(){
@@ -19,6 +21,11 @@ export class ChannelService {
   getValue(v: string){
     // console.log(v);
     return v;
+  }
+
+  // log() <= "depend.service.ts"
+  dValue(){
+    return this.dependService.log();
   }
 
 
