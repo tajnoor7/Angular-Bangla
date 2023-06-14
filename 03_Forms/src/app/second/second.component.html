@@ -12,6 +12,7 @@
 <!-- <br>
 <br> -->
 
+<!-- 
 <div>
     <h1 class="head">Reactive Form</h1>
 
@@ -35,4 +36,62 @@
 
       <p style="background-color: antiquewhite;">{{name}}</p>
       
+</div> 
+-->
+
+
+<div class="div">
+
+  <h1 class="head">Reactive Form</h1>
+
+
+<!-- Form -->
+  <form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+
+    <label class="firstName" for="firstName">First Name:
+        <input type="text" formControlName="firstName">
+    </label>
+
+    <br>
+    <br>
+
+    <label class="lastName" for="lastName">Last Name:
+        <input type="text" formControlName="lastName">
+    </label>
+    
+    <br>
+    <br>
+
+    <label class="email" for="email">Email:
+        <input type="email" formControlName="email">
+    </label>
+    
+    <br>
+    <br>
+
+    <label class="password" for="password">Password:
+        <input type="password" formControlName="password">
+    </label>
+    
+    <br>
+    <br>
+
+    <label class="confirmPassword" for="confirmPassword">Confirm Password:
+        <input type="password" formControlName="confirmPassword">
+    </label>
+    
+    <br>
+
+<div class="button-container">
+    <button type="submit" class="submit-btn">Submit</button>
 </div>
+
+  </form>
+
+  <br>
+<br>
+
+{{myForm.value | json}}
+</div>
+ 
