@@ -81,6 +81,15 @@ button:hover{
 }
 
 
+.input-box{
+    position:fixed; 
+    width: 220px;
+    left: 275px; 
+    
+    /* right: 50px; */
+    /* top: 20px; */
+}
+
 
 
 
