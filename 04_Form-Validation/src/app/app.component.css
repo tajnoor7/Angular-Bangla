@@ -151,12 +151,18 @@ button:hover{
 
 
 
-.firstName-span {
+.spanC {
 
     position:fixed; 
     width: 220px;
-    left: 505px; 
-
-
-    
+    left: 507px; 
+    /* left: 250px; */
+    color: green;
   }
+
+.green-circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: rgb(124, 236, 11);
+}

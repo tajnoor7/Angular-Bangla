@@ -15,8 +15,8 @@
     <label class="firstName" for="firstName">First Name:
         <input class="input-box" type="text" formControlName="firstName" required minlength="3" maxlength="31">
 
-        <span class="firstName-span" *ngIf="!firstName?.errors">
-            <input type="checkbox" checked onclick="return false;">
+        <span class="spanC" *ngIf="!firstName?.errors">
+            <div class="green-circle"></div>
         </span>
 
         <!-- First Name error msg -->
@@ -43,8 +43,8 @@
     <label class="lastName" for="lastName">Last Name:
         <input class="input-box" type="text" formControlName="lastName" required minlength="3" maxlength="31">
 
-        <span *ngIf="!lastName?.errors">
-            <input type="checkbox" checked onclick="return false;">
+        <span class="spanC" *ngIf="!lastName?.errors">
+            <div class="green-circle"></div>
         </span>
 
         <!-- Last Name error msg -->
@@ -71,10 +71,9 @@
     <label class="email" for="email">Email:
         <input class="input-box" type="email" formControlName="email" required email>
 
-        <span *ngIf="!lastName?.errors">
-            <input type="checkbox" checked onclick="return false;">
+        <span class="spanC" *ngIf="!email?.errors">
+            <div class="green-circle"></div>
         </span>
-
       
         <!-- Email error msg -->
         <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
@@ -95,6 +94,10 @@
     <!-- Password -->
     <label class="password" for="password">Password:
         <input class="input-box" type="password" formControlName="password" required minlength="8" maxlength="31"> <!--  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$" -->
+
+        <span class="spanC" *ngIf="!password?.errors">
+            <div class="green-circle"></div>
+        </span>
 
         <!-- Password error msg -->
         <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="errDiv">
@@ -123,6 +126,10 @@
     <!-- Confirm Password -->
     <label class="confirmPassword" for="confirmPassword">Confirm Password:
         <input class="input-box" type="password" formControlName="confirmPassword" required minlength="8" maxlength="31"> <!--  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$" -->
+
+        <span class="spanC" *ngIf="!confirmPassword?.errors">
+            <div class="green-circle"></div>
+        </span>
 
         <!-- Password error msg -->
         <div *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)" class="errDiv">
