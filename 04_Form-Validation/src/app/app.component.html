@@ -72,10 +72,6 @@
             <div *ngIf="email?.hasError('email')" class="err">
                 Invadil Email
             </div>
-
-            <div *ngIf="email?.hasError('maxlength')" class="err">
-                Last Name not more than 30 characters
-            </div>
         </div> 
 
     </label>
@@ -85,7 +81,27 @@
 
     <!-- Password -->
     <label class="password" for="password">Password:
-        <input class="input-box" type="password" formControlName="password">
+        <input class="input-box" type="password" formControlName="password" required minlength="8" maxlength="31"> <!--  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$" -->
+
+        <!-- Password error msg -->
+        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="errDiv">
+            <div *ngIf="password?.hasError('required')" class="err">
+                Password must be required
+            </div>
+
+            <div *ngIf="password?.hasError('minlength')" class="err">
+                Password must be atlest 8 characters
+            </div>
+
+            <div *ngIf="password?.hasError('maxlength')" class="err">
+                Password not more than 30 characters
+            </div>
+
+            <div *ngIf="password?.hasError('pattern')" class="err2">
+                Must contain one capital letter and number
+              </div>
+        </div> 
+
     </label>
     
 <br>
@@ -93,7 +109,33 @@
 
     <!-- Confirm Password -->
     <label class="confirmPassword" for="confirmPassword">Confirm Password:
-        <input class="input-box" type="password" formControlName="confirmPassword">
+        <input class="input-box" type="confirmPassword" formControlName="confirmPassword" required minlength="8" maxlength="31"> <!--  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$" -->
+
+        <!-- Password error msg -->
+        <div *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)" class="errDiv">
+            <div *ngIf="confirmPassword?.hasError('required')" class="err">
+                Confirm Password must be required
+            </div>
+
+            <div *ngIf="confirmPassword?.hasError('minlength')" class="err">
+                Confirm Password must be atlest 8 characters
+            </div>
+
+            <div *ngIf="confirmPassword?.hasError('maxlength')" class="err">
+                Confirm Password not more than 30 characters
+            </div>
+
+            <div *ngIf="confirmPassword?.hasError('pattern')" class="err2">
+                Must contain one capital letter and number
+              </div>
+
+              <div *ngIf="confirmPassword?.hasError('passwordMismatch')" class="err2">
+                Password and Confirm Password do not match
+              </div>
+              
+
+        </div> 
+
     </label>
     
     <br>
