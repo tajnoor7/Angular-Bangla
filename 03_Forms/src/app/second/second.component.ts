@@ -19,5 +19,7 @@ export class SecondComponent implements OnInit {
   //instance of FormControl
   color = new FormControl('');
 
+  name = '';
+
 
 }

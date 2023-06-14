@@ -5,6 +5,10 @@ h1{
     font-size: 3rem;
 }
 
+.head{
+    color: rgb(31, 148, 109);
+}
+
 button{
     color: rgb(0, 0, 0);
     width: 250px;
