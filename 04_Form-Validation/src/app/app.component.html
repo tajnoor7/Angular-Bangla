@@ -1,46 +1,69 @@
+<!--  -->
+
 <div class="div">
 
   <h1 class="head">Reactive Form</h1>
 
 
-<!-- Form -->
+  <!-- Form -->
   <form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
 
-
+    <!-- First Name -->
     <label class="firstName" for="firstName">First Name:
-        <input class="input-box" type="text" formControlName="firstName">
+        <input class="input-box" type="text" formControlName="firstName" required minlength="3" maxlength="31">
+
+        <!-- First Name error msg -->
+        <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
+            <div *ngIf="firstName?.hasError('required')" class="err">
+                First Name must be filled
+            </div>
+
+            <div *ngIf="firstName?.hasError('minlength')" class="err">
+                First Name must be atlest 3 characters
+            </div>
+
+            <div *ngIf="firstName?.hasError('maxlength')" class="err">
+                First Name not more than 30 characters
+            </div>
+        </div>     
+
     </label>
 
-    <br>
-    <br>
+<br>
+<br>
 
+    <!-- Last Name -->
     <label class="lastName" for="lastName">Last Name:
         <input class="input-box" type="text" formControlName="lastName">
     </label>
     
-    <br>
-    <br>
+<br>
+<br>
 
+    <!-- Email -->
     <label class="email" for="email">Email:
         <input class="input-box" type="email" formControlName="email">
     </label>
     
-    <br>
-    <br>
+<br>
+<br>
 
+    <!-- Password -->
     <label class="password" for="password">Password:
         <input class="input-box" type="password" formControlName="password">
     </label>
     
-    <br>
-    <br>
+<br>
+<br>
 
+    <!-- Confirm Password -->
     <label class="confirmPassword" for="confirmPassword">Confirm Password:
         <input class="input-box" type="password" formControlName="confirmPassword">
     </label>
     
     <br>
 
+    <!-- Submit Button -->
 <div class="button-container">
     <button type="submit" class="submit-btn">Submit</button>
 </div>
@@ -50,5 +73,7 @@
   <br>
 <br>
 
-{{myForm.value | json}}
 </div>
+
+<!-- Show Real-time value -->
+{{myForm.value | json}}
