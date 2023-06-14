@@ -5,8 +5,8 @@ export interface User{
   firstName: string,
   lastName: string,
   email: string,
-  password: any,
-  confirmPassword: any
+  password: string,
+  confirmPassword: string
 }
 
 @Component({
@@ -21,11 +21,10 @@ export class AppComponent {
     firstName: '',
     lastName: '',
     email: '',
-    password: null,
-    confirmPassword: null,
+    password: '',
+    confirmPassword: ''
   }
 
-// lastName: any;
 
   constructor() {
     this.user = {} as User;
@@ -35,10 +34,10 @@ export class AppComponent {
 
   }
 
-  userName = [
+  userNameValidators = [
     Validators.required,
     Validators.minLength(3),
-    Validators.maxLength(30),
+    Validators.maxLength(30)
   ]
 
   myForm = new FormGroup({
@@ -49,10 +48,14 @@ export class AppComponent {
     //   Validators.maxLength(30),
     // ]),
 
-    firstName: new FormControl(this.user.firstName, this.userName ),
-    lastName: new FormControl(this.user.lastName, ),
+    firstName: new FormControl(this.user.firstName, this.userNameValidators),
+    lastName: new FormControl(this.user.lastName, this.userNameValidators),
 
-    email: new FormControl(this.user.email),
+    email: new FormControl(this.user.email, [
+      Validators.required,
+      Validators.email
+    ]),
+
     password: new FormControl(this.user.password),
     confirmPassword: new FormControl(this.user.confirmPassword),
   })
@@ -63,6 +66,12 @@ export class AppComponent {
 
   get firstName(){
     return this.myForm.get("firstName");
+  }
+  get lastName(){
+    return this.myForm.get("lastName");
+  }
+  get email(){
+    return this.myForm.get("email");
   }
 
 

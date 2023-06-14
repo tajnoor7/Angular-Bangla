@@ -4,6 +4,9 @@
 
   <h1 class="head">Reactive Form</h1>
 
+  <!-- Show Real-time value -->
+{{myForm.value | json}}
+<br><br>
 
   <!-- Form -->
   <form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
@@ -15,7 +18,7 @@
         <!-- First Name error msg -->
         <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
             <div *ngIf="firstName?.hasError('required')" class="err">
-                First Name must be filled
+                First Name must be required
             </div>
 
             <div *ngIf="firstName?.hasError('minlength')" class="err">
@@ -34,7 +37,23 @@
 
     <!-- Last Name -->
     <label class="lastName" for="lastName">Last Name:
-        <input class="input-box" type="text" formControlName="lastName">
+        <input class="input-box" type="text" formControlName="lastName" required minlength="3" maxlength="31">
+
+        <!-- Last Name error msg -->
+        <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+            <div *ngIf="lastName?.hasError('required')" class="err">
+                Last Name must be required
+            </div>
+
+            <div *ngIf="lastName?.hasError('minlength')" class="err">
+                Last Name must be atlest 3 characters
+            </div>
+
+            <div *ngIf="lastName?.hasError('maxlength')" class="err">
+                Last Name not more than 30 characters
+            </div>
+        </div> 
+
     </label>
     
 <br>
@@ -42,7 +61,23 @@
 
     <!-- Email -->
     <label class="email" for="email">Email:
-        <input class="input-box" type="email" formControlName="email">
+        <input class="input-box" type="email" formControlName="email" required email>
+
+        <!-- Email error msg -->
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+            <div *ngIf="email?.hasError('required')" class="err">
+                Email must be required
+            </div>
+
+            <div *ngIf="email?.hasError('email')" class="err">
+                Invadil Email
+            </div>
+
+            <div *ngIf="email?.hasError('maxlength')" class="err">
+                Last Name not more than 30 characters
+            </div>
+        </div> 
+
     </label>
     
 <br>
@@ -70,10 +105,9 @@
 
   </form>
 
-  <br>
-<br>
+<br><br>
 
 </div>
 
-<!-- Show Real-time value -->
-{{myForm.value | json}}
+<!-- Show Real-time value
+{{myForm.value | json}} -->
