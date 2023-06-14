@@ -109,7 +109,7 @@
 
     <!-- Confirm Password -->
     <label class="confirmPassword" for="confirmPassword">Confirm Password:
-        <input class="input-box" type="confirmPassword" formControlName="confirmPassword" required minlength="8" maxlength="31"> <!--  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$" -->
+        <input class="input-box" type="password" formControlName="confirmPassword" required minlength="8" maxlength="31"> <!--  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$" -->
 
         <!-- Password error msg -->
         <div *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)" class="errDiv">
@@ -125,11 +125,11 @@
                 Confirm Password not more than 30 characters
             </div>
 
-            <div *ngIf="confirmPassword?.hasError('pattern')" class="err2">
-                Must contain one capital letter and number
+            <div *ngIf="confirmPassword?.hasError('pattern')" class="err3">
+                Must contain one capital letter and a number
               </div>
 
-              <div *ngIf="confirmPassword?.hasError('passwordMismatch')" class="err2">
+              <div *ngIf="confirmPassword?.hasError('passwordMismatch')" class="err3">
                 Password and Confirm Password do not match
               </div>
               

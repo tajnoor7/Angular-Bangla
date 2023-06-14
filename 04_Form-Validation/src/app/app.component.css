@@ -133,6 +133,17 @@ button:hover{
 } */
 
 
+.err3{
+    font-size: 14px;
+    padding: 2.3rem;
+    color: red;
+    position:relative; 
+    width: 220px;
+    left: 131px; 
+}
+
+
+
 .errDiv{
     /* max-height: 50px; */
     height: 20px;
