@@ -10,6 +10,7 @@ import { FaComponent } from './fa/fa.component';
 import { FbComponent } from './fb/fb.component';
 import { SaComponent } from './sa/sa.component';
 import { SbComponent } from './sb/sb.component';  //imported
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // const routes: Routes = [
 //   {
@@ -40,6 +41,8 @@ import { SbComponent } from './sb/sb.component';  //imported
     BrowserModule,
     AppRoutingModule,
     // RouterModule.forRoot(routes)
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

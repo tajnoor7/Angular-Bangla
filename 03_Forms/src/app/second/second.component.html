@@ -8,3 +8,16 @@
 <button [routerLink]="['child-sb']" id="firstChild">Child B</button>
 
 <router-outlet></router-outlet>
+
+
+
+<br>
+<br>
+<label for="color">Color
+    <input type="text" [formControl]="color">
+</label>
+
+<div style="background-color: antiquewhite;">
+    <p>{{color.value}}</p>
+</div>
+<!-- {{color.value}}; -->
