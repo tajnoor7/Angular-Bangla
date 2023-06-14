@@ -15,6 +15,10 @@
     <label class="firstName" for="firstName">First Name:
         <input class="input-box" type="text" formControlName="firstName" required minlength="3" maxlength="31">
 
+        <span class="firstName-span" *ngIf="!firstName?.errors">
+            <input type="checkbox" checked onclick="return false;">
+        </span>
+
         <!-- First Name error msg -->
         <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
             <div *ngIf="firstName?.hasError('required')" class="err">
@@ -38,6 +42,10 @@
     <!-- Last Name -->
     <label class="lastName" for="lastName">Last Name:
         <input class="input-box" type="text" formControlName="lastName" required minlength="3" maxlength="31">
+
+        <span *ngIf="!lastName?.errors">
+            <input type="checkbox" checked onclick="return false;">
+        </span>
 
         <!-- Last Name error msg -->
         <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
@@ -63,6 +71,11 @@
     <label class="email" for="email">Email:
         <input class="input-box" type="email" formControlName="email" required email>
 
+        <span *ngIf="!lastName?.errors">
+            <input type="checkbox" checked onclick="return false;">
+        </span>
+
+      
         <!-- Email error msg -->
         <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
             <div *ngIf="email?.hasError('required')" class="err">

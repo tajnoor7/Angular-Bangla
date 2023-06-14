@@ -149,3 +149,14 @@ button:hover{
     height: 20px;
 }
 
+
+
+.firstName-span {
+
+    position:fixed; 
+    width: 220px;
+    left: 505px; 
+
+
+    
+  }
