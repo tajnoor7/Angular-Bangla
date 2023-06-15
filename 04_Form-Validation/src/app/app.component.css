@@ -155,22 +155,25 @@ button:hover{
 .spanC {
 
     position:fixed; 
-    width: 220px;
-    left: 507px; 
-    /* left: 250px; */
-    color: green;
+    /* left: 507px;  */
+    left: 250px;
   }
 
 .green-circle {
-    width: 16px;
-    height: 16px;
+    margin: .35rem;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background-color: rgb(125, 240, 10);
 }
 
 .red-circle {
-    width: 16px;
+    /* width: 16px;
     height: 16px;
+    border-radius: 50%; */
+    margin: .35rem;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background-color: tomato;
 }
