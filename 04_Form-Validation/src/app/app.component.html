@@ -15,10 +15,15 @@
     <label class="firstName" for="firstName">First Name:
         <input class="input-box" type="text" formControlName="firstName" required minlength="3" maxlength="31">
 
+        <!-- err/nonErr color -->
         <span class="spanC" *ngIf="!firstName?.errors">
             <div class="green-circle"></div>
         </span>
+        <span class="spanC" *ngIf="firstName?.errors && firstName?.touched">
+            <div class="red-circle"></div>
+        </span>
 
+        
         <!-- First Name error msg -->
         <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
             <div *ngIf="firstName?.hasError('required')" class="err">
@@ -43,8 +48,12 @@
     <label class="lastName" for="lastName">Last Name:
         <input class="input-box" type="text" formControlName="lastName" required minlength="3" maxlength="31">
 
+        <!-- err/nonErr color -->
         <span class="spanC" *ngIf="!lastName?.errors">
             <div class="green-circle"></div>
+        </span>
+        <span class="spanC" *ngIf="lastName?.errors && lastName?.touched">
+            <div class="red-circle"></div>
         </span>
 
         <!-- Last Name error msg -->
@@ -71,8 +80,12 @@
     <label class="email" for="email">Email:
         <input class="input-box" type="email" formControlName="email" required email>
 
+        <!-- err/nonErr color -->
         <span class="spanC" *ngIf="!email?.errors">
             <div class="green-circle"></div>
+        </span>
+        <span class="spanC" *ngIf="email?.errors && email?.touched">
+            <div class="red-circle"></div>
         </span>
       
         <!-- Email error msg -->
@@ -95,8 +108,12 @@
     <label class="password" for="password">Password:
         <input class="input-box" type="password" formControlName="password" required minlength="8" maxlength="31"> <!--  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$" -->
 
+        <!-- err/nonErr color -->
         <span class="spanC" *ngIf="!password?.errors">
             <div class="green-circle"></div>
+        </span>
+        <span class="spanC" *ngIf="password?.errors && password?.touched">
+            <div class="red-circle"></div>
         </span>
 
         <!-- Password error msg -->
@@ -114,7 +131,7 @@
             </div>
 
             <div *ngIf="password?.hasError('pattern')" class="err2">
-                Must contain one capital letter and number
+                Must contain one capital letter, one small latter and number
               </div>
         </div> 
 
@@ -127,8 +144,12 @@
     <label class="confirmPassword" for="confirmPassword">Confirm Password:
         <input class="input-box" type="password" formControlName="confirmPassword" required minlength="8" maxlength="31"> <!--  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$" -->
 
+        <!-- err/nonErr color -->
         <span class="spanC" *ngIf="!confirmPassword?.errors">
             <div class="green-circle"></div>
+        </span>
+        <span class="spanC" *ngIf="confirmPassword?.errors && confirmPassword?.touched">
+            <div class="red-circle"></div>
         </span>
 
         <!-- Password error msg -->
@@ -146,7 +167,7 @@
             </div>
 
             <div *ngIf="confirmPassword?.hasError('pattern')" class="err3">
-                Must contain one capital letter and a number
+                Must contain one capital letter, one small letter and a number
               </div>
 
               <div *ngIf="confirmPassword?.hasError('passwordMismatch')" class="err3">

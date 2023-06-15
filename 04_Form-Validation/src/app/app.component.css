@@ -114,6 +114,7 @@ button:hover{
     position:fixed; 
     width: 220px;
     left: 275px; 
+    
 }
 /* .err:hover{
     color: rgb(189, 6, 6);
@@ -164,5 +165,12 @@ button:hover{
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background-color: rgb(124, 236, 11);
+    background-color: rgb(125, 240, 10);
+}
+
+.red-circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: tomato;
 }
