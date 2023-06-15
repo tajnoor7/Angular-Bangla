@@ -131,8 +131,9 @@
             </div>
 
             <div *ngIf="password?.hasError('pattern')" class="err2">
-                Must contain one capital letter, one small latter and number
+                Must contain Capital letter, Small latter, Number & no Special character allow
               </div>
+
         </div> 
 
     </label>
@@ -152,7 +153,7 @@
             <div class="red-circle"></div>
         </span>
 
-        <!-- Password error msg -->
+        <!-- Confirm Password error msg -->
         <div *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)" class="errDiv">
             <div *ngIf="confirmPassword?.hasError('required')" class="err">
                 Confirm Password must be required
@@ -170,9 +171,9 @@
                 Must contain one capital letter, one small letter and a number
               </div>
 
-              <div *ngIf="confirmPassword?.hasError('passwordMismatch')" class="err3">
+              <!-- <div *ngIf="confirmPassword?.hasError('passwordMismatch')" class="err3">
                 Password and Confirm Password do not match
-              </div>
+              </div> -->
         </div> 
 
     </label>
