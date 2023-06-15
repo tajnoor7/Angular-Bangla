@@ -1,10 +1,16 @@
-
-<h1>First Component</h1>
-
-<button [routerLink]="['/s']">Go to Second Component</button>
-<br>
-<br>
-<button [routerLink]="['child-fa']" id="firstChild">Child A</button>
-<button [routerLink]="['child-fb']" id="firstChild">Child B</button>
-
+<div class="div">
+    <div class="centered-container">
+      <h1>First Component</h1>
+      <button [routerLink]="['/s']">Go to Second Component</button>
+      <br>
+      <br>
+      <div class="button-container">
+        <button [routerLink]="['child-fa']" id="firstChild">Child A</button>
+        <button [routerLink]="['child-fb']" id="firstChild">Child B</button>
+      </div>
+    </div>
+  </div>
+  
 <router-outlet></router-outlet>
+
+

@@ -1,0 +1,97 @@
+<!-- 
+<h1>Second Component</h1>
+
+<button [routerLink]="['/']">Back to Second Component</button>
+<br>
+<br>
+<button [routerLink]="['child-sa']" id="firstChild">Child A</button>
+<button [routerLink]="['child-sb']" id="firstChild">Child B</button> -->
+
+<router-outlet></router-outlet>
+
+<!-- <br>
+<br> -->
+
+<!-- 
+<div>
+    <h1 class="head">Reactive Form</h1>
+
+  <label for="color">Color
+     <input type="text" [formControl]="color">
+  </label>
+
+  <p style="background-color: antiquewhite;">{{color.value}}</p>
+  
+</div>
+
+<br>
+<br>
+
+<div>
+    <h1 class="head">Template Driven Form</h1>
+
+      <label for="name">Name
+        <input type="text" [(ngModel)]="name">
+      </label>
+
+      <p style="background-color: antiquewhite;">{{name}}</p>
+      
+</div> 
+-->
+
+
+<div class="div">
+
+  <h1 class="head">Reactive Form</h1>
+
+
+<!-- Form -->
+  <form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+
+    <label class="firstName" for="firstName">First Name:
+        <input class="input-box" type="text" formControlName="firstName">
+    </label>
+
+    <br>
+    <br>
+
+    <label class="lastName" for="lastName">Last Name:
+        <input class="input-box" type="text" formControlName="lastName">
+    </label>
+    
+    <br>
+    <br>
+
+    <label class="email" for="email">Email:
+        <input class="input-box" type="email" formControlName="email">
+    </label>
+    
+    <br>
+    <br>
+
+    <label class="password" for="password">Password:
+        <input class="input-box" type="password" formControlName="password">
+    </label>
+    
+    <br>
+    <br>
+
+    <label class="confirmPassword" for="confirmPassword">Confirm Password:
+        <input class="input-box" type="password" formControlName="confirmPassword">
+    </label>
+    
+    <br>
+
+<div class="button-container">
+    <button type="submit" class="submit-btn">Submit</button>
+</div>
+
+  </form>
+
+  <br>
+<br>
+
+{{myForm.value | json}}
+</div>
+ 

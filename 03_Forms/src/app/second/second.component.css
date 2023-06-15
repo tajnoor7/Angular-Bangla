@@ -1,3 +1,23 @@
+.div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+  
+  .centered-container {
+    text-align: center;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+  }
+
+  
+
 
 .form {
     max-width: 400px;
@@ -41,60 +61,6 @@ button:hover{
     height: auto /* Adjust this value to center vertically within a specific container */
   }
 
-.submit-btn{
-    color: rgb(0, 0, 0);
-    width: 100px;
-    height: 30px;
-    font-weight:bolder;
-    background-color: rgb(30, 154, 139);
-    border-radius: 30px;
-    margin-top: 30px;
-    /* margin-left: 1px; */
-}
-.submit-btn:hover{
-    background-color: rgb(95, 177, 167);
-}
-
-
-.firstName{
-    margin-left: 10px;
-    width: 250px;
-}
-.lastName{
-    margin-left: 10px;
-    width: 250px;
-}
-
-.email{
-    margin-left: 10px;
-    width: 250px;
-}
-
-.password{
-    margin-left: 10px;
-    width: 250px;
-}
-
-.confirmPassword{
-    margin-left: 10px;
-    width: 250px;
-}
-
-
-.input-box{
-    position:fixed; 
-    width: 220px;
-    left: 275px; 
-    
-    /* right: 50px; */
-    /* top: 20px; */
-}
-
-
-
-
-
-
 #firstChild{
     color: rgb(24, 24, 24);
     background-color: rgb(115, 191, 187);
@@ -105,4 +71,56 @@ button:hover{
 #firstChild:hover {
     color: rgb(255, 255, 255);
     background-color: rgb(75, 143, 139);
+}
+
+
+
+
+
+
+/* Reactive Form */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
 }

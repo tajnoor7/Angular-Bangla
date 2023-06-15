@@ -1,97 +1,202 @@
-<!-- 
-<h1>Second Component</h1>
+<div class="div">
+  <div class="centered-container">
+    <h1>Second Component</h1>
+    <button [routerLink]="['/']">Back to Second Component</button>
+    <br>
+    <br>
+    <div class="button-container">
+      <button [routerLink]="['child-sa']" id="firstChild">Child A</button>
+      <button [routerLink]="['child-sb']" id="firstChild">Child B</button>
+    </div>
+  </div>
+</div>
 
-<button [routerLink]="['/']">Back to Second Component</button>
-<br>
-<br>
-<button [routerLink]="['child-sa']" id="firstChild">Child A</button>
-<button [routerLink]="['child-sb']" id="firstChild">Child B</button> -->
 
 <router-outlet></router-outlet>
 
-<!-- <br>
-<br> -->
 
-<!-- 
+<!--  -->
 <div>
-    <h1 class="head">Reactive Form</h1>
+  <h1>Reactive Form</h1>
 
-  <label for="color">Color
-     <input type="text" [formControl]="color">
-  </label>
-
-  <p style="background-color: antiquewhite;">{{color.value}}</p>
-  
+  <!-- Show Real-time value -->
+  <p style="text-align: center;"> {{myForm.value | json}} </p>
 </div>
-
-<br>
-<br>
-
-<div>
-    <h1 class="head">Template Driven Form</h1>
-
-      <label for="name">Name
-        <input type="text" [(ngModel)]="name">
-      </label>
-
-      <p style="background-color: antiquewhite;">{{name}}</p>
-      
-</div> 
--->
-
 
 <div class="div">
 
-  <h1 class="head">Reactive Form</h1>
-
-
-<!-- Form -->
+  <!-- Form -->
   <form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
 
-
+    <!-- First Name -->
     <label class="firstName" for="firstName">First Name:
-        <input class="input-box" type="text" formControlName="firstName">
+        <input class="input-box" type="text" formControlName="firstName" required minlength="3" maxlength="31">
+
+        <!-- err/nonErr color -->
+        <span class="spanC" *ngIf="!firstName?.errors">
+            <div class="green-circle"></div>
+        </span>
+        <span class="spanC" *ngIf="firstName?.errors && firstName?.touched">
+            <div class="red-circle"></div>
+        </span>
+
+        
+        <!-- First Name error msg -->
+        <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
+            <div *ngIf="firstName?.hasError('required')" class="err">
+                First Name must be required
+            </div>
+
+            <div *ngIf="firstName?.hasError('minlength')" class="err">
+                First Name must be atlest 3 characters
+            </div>
+
+            <div *ngIf="firstName?.hasError('maxlength')" class="err">
+                First Name not more than 30 characters
+            </div>
+        </div>     
+
     </label>
 
-    <br>
-    <br>
+<br>
+<br>
 
+    <!-- Last Name -->
     <label class="lastName" for="lastName">Last Name:
-        <input class="input-box" type="text" formControlName="lastName">
+        <input class="input-box" type="text" formControlName="lastName" required minlength="3" maxlength="31">
+
+        <!-- err/nonErr color -->
+        <span class="spanC" *ngIf="!lastName?.errors">
+            <div class="green-circle"></div>
+        </span>
+        <span class="spanC" *ngIf="lastName?.errors && lastName?.touched">
+            <div class="red-circle"></div>
+        </span>
+
+        <!-- Last Name error msg -->
+        <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+            <div *ngIf="lastName?.hasError('required')" class="err">
+                Last Name must be required
+            </div>
+
+            <div *ngIf="lastName?.hasError('minlength')" class="err">
+                Last Name must be atlest 3 characters
+            </div>
+
+            <div *ngIf="lastName?.hasError('maxlength')" class="err">
+                Last Name not more than 30 characters
+            </div>
+        </div> 
+
     </label>
     
-    <br>
-    <br>
+<br>
+<br>
 
+    <!-- Email -->
     <label class="email" for="email">Email:
-        <input class="input-box" type="email" formControlName="email">
+        <input class="input-box" type="email" formControlName="email" required email>
+
+        <!-- err/nonErr color -->
+        <span class="spanC" *ngIf="!email?.errors">
+            <div class="green-circle"></div>
+        </span>
+        <span class="spanC" *ngIf="email?.errors && email?.touched">
+            <div class="red-circle"></div>
+        </span>
+      
+        <!-- Email error msg -->
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+            <div *ngIf="email?.hasError('required')" class="err">
+                Email must be required
+            </div>
+
+            <div *ngIf="email?.hasError('email')" class="err">
+                Invalid Email
+            </div>
+        </div> 
+
     </label>
     
-    <br>
-    <br>
+<br>
+<br>
 
+    <!-- Password -->
     <label class="password" for="password">Password:
-        <input class="input-box" type="password" formControlName="password">
+        <input class="input-box" type="password" formControlName="password" required minlength="8" maxlength="31"> <!--  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$" -->
+
+        <!-- err/nonErr color -->
+        <span class="spanC" *ngIf="!password?.errors">
+            <div class="green-circle"></div>
+        </span>
+        <span class="spanC" *ngIf="password?.errors && password?.touched">
+            <div class="red-circle"></div>
+        </span>
+
+        <!-- Password error msg -->
+        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="errDiv">
+            <div *ngIf="password?.hasError('required')" class="err">
+                Password must be required
+            </div>
+
+            <div *ngIf="password?.hasError('minlength')" class="err">
+                Password must be atlest 8 characters
+            </div>
+
+            <div *ngIf="password?.hasError('maxlength')" class="err">
+                Password not more than 30 characters
+            </div>
+
+            <div *ngIf="password?.hasError('pattern')" class="err2">
+                No Special character allow. Must contain atlest one capital letter, small latter & number
+              </div>
+
+        </div> 
+
     </label>
     
-    <br>
-    <br>
+<br>
+<br>
 
+    <!-- Confirm Password -->
     <label class="confirmPassword" for="confirmPassword">Confirm Password:
-        <input class="input-box" type="password" formControlName="confirmPassword">
+        <input class="input-box" type="password" formControlName="confirmPassword" required minlength="8" maxlength="31"> <!--  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$" -->
+
+        <!-- err/nonErr color -->
+        <span class="spanC" *ngIf="!confirmPassword?.errors">
+            <div class="green-circle"></div>
+        </span>
+        <span class="spanC" *ngIf="confirmPassword?.errors && confirmPassword?.touched">
+            <div class="red-circle"></div>
+        </span>
+
+        <!-- Confirm Password error msg -->
+        <div *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)" class="errDiv2">
+            <div *ngIf="confirmPassword?.hasError('required')" class="err3">
+                Confirm Password must be required
+            </div>
+            
+            <div *ngIf="confirmPassword?.errors?.['passwordMismatch']" class="err4">
+                Passwords do not match !!!
+            </div>
+              
+        </div> 
+
     </label>
     
     <br>
 
-<div class="button-container">
-    <button type="submit" class="submit-btn">Submit</button>
-</div>
+        <!-- Submit Button -->
+        <div class="button-container">
+            <button type="submit" class="submit-btn">Submit</button>
+        </div>
 
   </form>
 
-  <br>
+<br>
 <br>
 
-{{myForm.value | json}}
 </div>
- 
+
+<!-- Show Real-time value
+{{myForm.value | json}} -->
