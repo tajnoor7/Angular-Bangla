@@ -114,11 +114,7 @@ button:hover{
     position:fixed; 
     width: 220px;
     left: 275px; 
-    
 }
-/* .err:hover{
-    color: rgb(189, 6, 6);
-} */
 
 
 .err2{
@@ -129,28 +125,35 @@ button:hover{
     width: 220px;
     left: 260px; 
 }
-/* .err2:hover{
-    color: rgb(189, 6, 6);
-} */
 
 
 .err3{
     font-size: 12px;
-    padding: 1.2rem;
+    padding: .3rem;
     color: red;
-    position:relative; 
+    position:fixed; 
     width: 220px;
-    left: 149px; 
+    left: 275px; 
 }
 
-
-
+.err4{
+    font-size: 12px;
+    padding: 1.2rem;
+    color: red;
+    position:fixed; 
+    width: 220px;
+    left: 260px; 
+}
 
 .errDiv{
     /* max-height: 50px; */
     height: 20px;
 }
 
+.errDiv2{
+    /* max-height: 50px; */
+    max-height: 20px;
+}
 
 
 .spanC {
