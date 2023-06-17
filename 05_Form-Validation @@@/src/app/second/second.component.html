@@ -60,7 +60,6 @@
 
   <!-- First Name -->
   <label for="firstName">First Name:
-
     <input type="text" id="firstName" name="firstName" formControlName="firstName" required minlength="3" maxlength="31"><br><br>
 
      <!-- err/nonErr color -->
@@ -85,28 +84,130 @@
           First Name not more than 30 characters
       </div>
   </div>  
-
   </label>
   
 
 
+  <!-- Last Name -->
+  <label for="lastName">Last Name:
+    <input type="text" id="lastName" name="lastName" formControlName="lastName" required minlength="3" maxlength="31"><br><br>
+
+    <!-- err/nonErr color -->
+    <span class="spanC" *ngIf="!lastName?.errors">
+      <div class="green-circle"></div>
+  </span>
+  <span class="spanC" *ngIf="lastName?.errors && lastName?.touched">
+      <div class="red-circle"></div>
+  </span>
+
+  <!-- Last Name error msg -->
+  <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+      <div *ngIf="lastName?.hasError('required')" class="err">
+          Last Name must be required
+      </div>
+
+      <div *ngIf="lastName?.hasError('minlength')" class="err">
+          Last Name must be atlest 3 characters
+      </div>
+
+      <div *ngIf="lastName?.hasError('maxlength')" class="err">
+          Last Name not more than 30 characters
+      </div>
+  </div> 
+  </label>
+  
+
+  <!-- Email -->
+  <label for="email">Email:
+    <input type="email" id="email" name="email" formControlName="email" required email><br><br>
+
+     <!-- err/nonErr color -->
+     <span class="spanC" *ngIf="!email?.errors">
+      <div class="green-circle"></div>
+  </span>
+  <span class="spanC" *ngIf="email?.errors && email?.touched">
+      <div class="red-circle"></div>
+  </span>
+
+  <!-- Email error msg -->
+  <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+      <div *ngIf="email?.hasError('required')" class="err">
+          Email must be required
+      </div>
+
+      <div *ngIf="email?.hasError('email')" class="err">
+          Invalid Email
+      </div>
+  </div> 
+  </label>
+  
 
 
+  <!-- Password -->
+  <label for="password">Password:
+    <input type="password" id="password" name="password" formControlName="password" required minlength="8" maxlength="31"><br><br>
+
+    <!-- err/nonErr color -->
+    <span class="spanC" *ngIf="!password?.errors">
+      <div class="green-circle"></div>
+  </span>
+  <span class="spanC" *ngIf="password?.errors && password?.touched">
+      <div class="red-circle"></div>
+  </span>
+
+  <!-- Password error msg -->
+  <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="errDiv">
+      <div *ngIf="password?.hasError('required')" class="err">
+          Password must be required
+      </div>
+
+      <div *ngIf="password?.hasError('minlength')" class="err">
+          Password must be atlest 8 characters
+      </div>
+
+      <div *ngIf="password?.hasError('maxlength')" class="err">
+          Password not more than 30 characters
+      </div>
+
+      <div *ngIf="password?.hasError('pattern')" class="err2">
+          No Special character allow. Must contain atlest one capital letter, small latter & number
+        </div>
+
+  </div>
+  </label>
+  
 
 
-  <label for="lastName">Last Name:</label>
-  <input type="text" id="lastName" name="lastName" required><br><br>
+  <!-- Confirm Password -->
+  <label for="confirmPassword">Confirm Password:
+    <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" required minlength="8" maxlength="31"><br><br>
 
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required><br><br>
+    <!-- err/nonErr color -->
+    <span class="spanC" *ngIf="!confirmPassword?.errors">
+      <div class="green-circle"></div>
+  </span>
+  <span class="spanC" *ngIf="confirmPassword?.errors && confirmPassword?.touched">
+      <div class="red-circle"></div>
+  </span>
 
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password" required><br><br>
+  <!-- Confirm Password error msg -->
+  <div *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)" class="errDiv2">
+      <div *ngIf="confirmPassword?.hasError('required')" class="err3">
+          Confirm Password must be required
+      </div>
+      
+      <div *ngIf="confirmPassword?.errors?.['passwordMismatch']" class="err4">
+          Passwords do not match !!!
+      </div>
+        
+  </div> 
+  </label>
+  
 
-  <label for="confirmPassword">Confirm Password:</label>
-  <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+  <div class="button-container">
+    <button type="submit" class="submit-btn">Submit</button>
+</div>
 
-  <input type="submit" value="Submit">
 </form>
 
   <br>
