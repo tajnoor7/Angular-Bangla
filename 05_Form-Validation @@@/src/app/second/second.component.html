@@ -1,57 +1,15 @@
 
-<h1>Second Component</h1>
-
-<div style="text-align: center;">
-
-<button [routerLink]="['/']">Back to Second Component</button>
-<br>
-<br>
-<button [routerLink]="['child-sa']" id="firstChild">Child A</button>
-<button [routerLink]="['child-sb']" id="firstChild">Child B</button>
-
-</div>
+<h1>Reactive Form</h1>
 
 
 <router-outlet></router-outlet>
 
-<!-- <br>
-<br> -->
 
-<!-- 
-<div>
-    <h1 class="head">Reactive Form</h1>
 
-  <label for="color">Color
-     <input type="text" [formControl]="color">
-  </label>
-
-  <p style="background-color: antiquewhite;">{{color.value}}</p>
-  
-</div>
-
-<br>
-<br>
-
-<div>
-    <h1 class="head">Template Driven Form</h1>
-
-      <label for="name">Name
-        <input type="text" [(ngModel)]="name">
-      </label>
-
-      <p style="background-color: antiquewhite;">{{name}}</p>
-      
-</div> 
--->
-
+<p style="text-align: center;">{{myForm.value | json}}</p>
 
 <div class="div">
 
-  <div style="text-align: center;">
-    <h1 class="head">Reactive Form</h1>
-       {{myForm.value | json}}
-  </div>
-  <br>
 
 <!-- Form -->
 <form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
@@ -139,8 +97,12 @@
     </div>
 
     <div *ngIf="password?.hasError('pattern')" class="err2">
-        No Special characters allow. Password must contain at least one capital letter, one small letter, and a number
+      Password must contain at least one capital letter, one small letter, and a number
     </div>
+
+    <div *ngIf="password?.hasError('pattern')" class="err2">
+      No Special characters allow.
+  </div>
 </div>
 
   </label>
@@ -177,3 +139,46 @@
 <br>
 </div>
  
+
+
+
+
+<div style="text-align: center;">
+
+<button [routerLink]="['/']">Go to Templete Driven Form</button>
+<br>
+<br>
+<!-- <button [routerLink]="['child-sa']" id="firstChild">Child A</button>
+<button [routerLink]="['child-sb']" id="firstChild">Child B</button> -->
+</div>
+
+
+<!-- <br>
+<br> -->
+
+<!-- 
+<div>
+    <h1 class="head">Reactive Form</h1>
+
+  <label for="color">Color
+     <input type="text" [formControl]="color">
+  </label>
+
+  <p style="background-color: antiquewhite;">{{color.value}}</p>
+  
+</div>
+
+<br>
+<br>
+
+<div>
+    <h1 class="head">Template Driven Form</h1>
+
+      <label for="name">Name
+        <input type="text" [(ngModel)]="name">
+      </label>
+
+      <p style="background-color: antiquewhite;">{{name}}</p>
+      
+</div> 
+-->
