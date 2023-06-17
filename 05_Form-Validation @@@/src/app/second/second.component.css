@@ -56,7 +56,7 @@ button:hover{
 }
 
 
-.firstName{
+/* .firstName{
     margin-left: 10px;
     width: 250px;
 }
@@ -78,7 +78,7 @@ button:hover{
 .confirmPassword{
     margin-left: 10px;
     width: 250px;
-}
+} */
 
 
 .input-box{
@@ -91,6 +91,36 @@ button:hover{
 }
 
 
+
+
+.err {
+    color: red;
+    font-size: 14px;
+    /* margin-top: -8px; */
+    margin-top: auto;
+    margin-left: 5px;
+  }
+
+  .err2 {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+  /* .green-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green;
+  }
+  
+  .red-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+  }
+   */
+  
 
 
 
