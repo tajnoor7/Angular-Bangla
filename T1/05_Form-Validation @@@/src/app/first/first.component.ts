@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { forbiddenNameValidator } from '../Custom-Validator/userName.validators';
 
 
 export interface Person {
@@ -38,7 +39,8 @@ export class FirstComponent implements OnInit {
   nameValidators = [
     Validators.required,
     Validators.minLength(3),
-    Validators.maxLength(30)
+    Validators.maxLength(30),
+    forbiddenNameValidator(/admin/)   //custon name validators
   ];
 
   //Password Validators for "Password" & "Confirm Password"
@@ -49,9 +51,12 @@ export class FirstComponent implements OnInit {
     Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
   ];
 
+  
   constructor() {
     this.person = {} as Person;
+
     this.myForm = new FormGroup({
+
       firstName: new FormControl(this.person.firstName, this.nameValidators),
       lastName: new FormControl(this.person.lastName, this.nameValidators),
       email: new FormControl(this.person.email, [Validators.required, Validators.email]),

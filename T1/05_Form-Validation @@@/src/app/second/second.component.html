@@ -17,13 +17,18 @@
 
   <!-- First Name -->
   <label for="firstName">First Name:
-    <input type="text" id="firstName" name="firstName" formControlName="firstName" required minlength="3" maxlength="31"><br>
+    <input type="text" id="firstName" name="firstName" formControlName="firstName" required minlength="3" maxlength="31" forbiddenNameValidator><br>
 
      <!-- First Name error msg -->
   <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
       <div *ngIf="firstName?.hasError('required')" class="err">
           First Name must be required
       </div>
+
+      <div *ngIf="firstName?.hasError('forbiddenName')" class="err">
+        First Name as "{{firstName?.errors?.['forbiddenName'].value}}" not allow
+    </div>
+
 
       <div *ngIf="firstName?.hasError('minlength')" class="err">
           First Name must be atlest 3 characters
@@ -39,13 +44,17 @@
 
   <!-- Last Name -->
   <label for="lastName">Last Name:
-    <input type="text" id="lastName" name="lastName" formControlName="lastName" required minlength="3" maxlength="31"><br>
+    <input type="text" id="lastName" name="lastName" formControlName="lastName" required minlength="3" maxlength="31" forbiddenNameValidator><br>
 
   <!-- Last Name error msg -->
   <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
       <div *ngIf="lastName?.hasError('required')" class="err">
           Last Name must be required
       </div>
+
+      <div *ngIf="lastName?.hasError('forbiddenName')" class="err">
+        Last Name as "{{lastName?.errors?.['forbiddenName'].value}}" not allow
+    </div>
 
       <div *ngIf="lastName?.hasError('minlength')" class="err">
           Last Name must be atlest 3 characters
@@ -147,8 +156,8 @@
 <button [routerLink]="['/']">Go to Templete Driven Form</button>
 <br>
 <br>
-<!-- <button [routerLink]="['child-sa']" id="firstChild">Child A</button>
-<button [routerLink]="['child-sb']" id="firstChild">Child B</button> -->
+<button [routerLink]="['child-sa']" id="firstChild">Child A</button>
+<button [routerLink]="['child-sb']" id="firstChild">Child B</button>
 </div>
 
 

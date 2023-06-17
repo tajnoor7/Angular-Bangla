@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { forbiddenNameValidator } from '../Custom-Validator/userName.validators';
 
 export interface User {
   firstName: string;
@@ -36,7 +37,13 @@ export class SecondComponent implements OnInit {
   nameValidators = [
     Validators.required,
     Validators.minLength(3),
-    Validators.maxLength(30)
+    Validators.maxLength(30),
+    forbiddenNameValidator(/admin/),
+    forbiddenNameValidator(/Admin/),
+    forbiddenNameValidator(/user/),
+    forbiddenNameValidator(/User/),
+    forbiddenNameValidator(/password/),
+    forbiddenNameValidator(/Password/)
   ];
 
   //Password Validators for "Password" & "Confirm Password"

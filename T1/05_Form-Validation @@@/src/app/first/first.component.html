@@ -12,20 +12,23 @@
 <div class="div">
     
 <!-- Form -->
-<!-- <form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit()"> -->
     <form class="form" #myForm="ngForm" (ngSubmit)="onSubmit()">
   
 
 
   <!-- First Name -->
   <label for="firstName">First Name:
-    <input type="text" id="firstName" name="firstName" [(ngModel)]="person.firstName" #firstName="ngModel" required minlength="3" maxlength="31"><br>
+    <input type="text" id="firstName" name="firstName" [(ngModel)]="person.firstName" #firstName="ngModel" required minlength="3" maxlength="31" forbiddenName><br>
 
      <!-- First Name error msg -->
   <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
       <div *ngIf="firstName?.errors?.['required']" class="err">
           First Name must be required
       </div>
+
+      <div *ngIf="firstName?.errors?.['forbiddenName']" class="err">
+        User name as "admin" not allowed
+    </div>
 
       <div *ngIf="firstName?.errors?.['minlength']" class="err">
           First Name must be atlest 3 characters
@@ -126,10 +129,14 @@
 </label>
 
   
-
+  <!-- Submit Button -->
   <div class="button-container">
-    <button type="submit" class="submit-btn">Submit</button>
-</div>
+
+    <button [disabled]="myForm.form.invalid" type="submit" class="submit-btn">Submit</button>
+
+  </div>
+
+
 
 </form>
 
@@ -158,8 +165,8 @@
     <button [routerLink]="['/s']">Go to Reactive Form</button>
 <br>
 <br>
-<!-- <button [routerLink]="['child-fa']" id="firstChild">Child A</button>
-<button [routerLink]="['child-fb']" id="firstChild">Child B</button> -->
+<button [routerLink]="['child-fa']" id="firstChild">Child A</button>
+<button [routerLink]="['child-fb']" id="firstChild">Child B</button>
 </div>
 
 
