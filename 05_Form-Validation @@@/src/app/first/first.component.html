@@ -7,29 +7,31 @@
 
 <p style="text-align: center;">{{myForm.value | json}}</p>
 
+
+
 <div class="div">
-
-
+    
 <!-- Form -->
-<form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<!-- <form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit()"> -->
+    <form class="form" #myForm="ngForm" (ngSubmit)="onSubmit()">
   
 
 
   <!-- First Name -->
   <label for="firstName">First Name:
-    <input type="text" id="firstName" name="firstName" formControlName="firstName" required minlength="3" maxlength="31"><br>
+    <input type="text" id="firstName" name="firstName" [(ngModel)]="person.firstName" #firstName="ngModel" required minlength="3" maxlength="31"><br>
 
      <!-- First Name error msg -->
   <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
-      <div *ngIf="firstName?.hasError('required')" class="err">
+      <div *ngIf="firstName?.errors?.['required']" class="err">
           First Name must be required
       </div>
 
-      <div *ngIf="firstName?.hasError('minlength')" class="err">
+      <div *ngIf="firstName?.errors?.['minlength']" class="err">
           First Name must be atlest 3 characters
       </div>
 
-      <div *ngIf="firstName?.hasError('maxlength')" class="err">
+      <div *ngIf="firstName?.errors?.['maxlength']" class="err">
           First Name not more than 30 characters
       </div>
   </div>  
@@ -39,19 +41,19 @@
 
   <!-- Last Name -->
   <label for="lastName">Last Name:
-    <input type="text" id="lastName" name="lastName" formControlName="lastName" required minlength="3" maxlength="31"><br>
+    <input type="text" id="lastName" name="lastName" [(ngModel)]="person.lastName" #lastName="ngModel" required minlength="3" maxlength="31"><br>
 
   <!-- Last Name error msg -->
   <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
-      <div *ngIf="lastName?.hasError('required')" class="err">
+      <div *ngIf="lastName?.errors?.['required']" class="err">
           Last Name must be required
       </div>
 
-      <div *ngIf="lastName?.hasError('minlength')" class="err">
+      <div *ngIf="lastName?.errors?.['minlength']" class="err">
           Last Name must be atlest 3 characters
       </div>
 
-      <div *ngIf="lastName?.hasError('maxlength')" class="err">
+      <div *ngIf="lastName?.errors?.['maxlength']" class="err">
           Last Name not more than 30 characters
       </div>
   </div> 
@@ -60,15 +62,15 @@
 
   <!-- Email -->
   <label for="email">Email:
-    <input type="email" id="email" name="email" formControlName="email" required email><br>
+    <input type="email" id="email" name="email" [(ngModel)]="person.email" #email="ngModel" required email><br>
 
   <!-- Email error msg -->
   <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
-      <div *ngIf="email?.hasError('required')" class="err">
+      <div *ngIf="email?.errors?.['required']" class="err">
           Email must be required
       </div>
 
-      <div *ngIf="email?.hasError('email')" class="err">
+      <div *ngIf="email?.errors?.['email']" class="err">
           Invalid Email
       </div>
   </div> 
@@ -76,56 +78,53 @@
   
 
 
-  <!-- Password -->
-  <label for="password">Password:
-    <input type="password" id="password" name="password" formControlName="password" required minlength="8" maxlength="31"><br>
+<!-- Password -->
+<label for="password">Password:
+  <input type="password" id="password" name="password" [(ngModel)]="person.password" #password="ngModel" required minlength="8" maxlength="31" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+$"><br>
 
 
   <!-- Password error msg -->
   <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="errDiv">
-    <div *ngIf="password?.hasError('required')" class="err2">
-        Password is required
+    <div *ngIf="password?.errors?.['required']" class="err2">
+      Password is required
     </div>
 
-    <div *ngIf="password?.hasError('minlength')" class="err2">
-        Password must be at least 8 characters
+    <div *ngIf="password?.errors?.['minlength']" class="err2">
+      Password must be at least 8 characters
     </div>
 
-    <div *ngIf="password?.hasError('maxlength')" class="err2">
-        Password must not exceed 30 characters
+    <div *ngIf="password?.errors?.['maxlength']" class="err2">
+      Password must not exceed 30 characters
     </div>
 
-    <div *ngIf="password?.hasError('pattern')" class="err2">
+    <div *ngIf="password?.errors?.['pattern']" class="err2">
       Password must contain at least one capital letter, one small letter, and a number
     </div>
 
-    <div *ngIf="password?.hasError('pattern')" class="err2">
-      No Special characters allow.
+    <div *ngIf="password?.errors?.['pattern']" class="err2">
+      No special characters allowed.
+    </div>
   </div>
-</div>
+</label>
 
-  </label>
-  
+<!-- Confirm Password -->
+<label for="confirmPassword">Confirm Password:
+  <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="person.confirmPassword" #confirmPassword="ngModel" required minlength="8" maxlength="31"><br>
 
-
-  <!-- Confirm Password -->
-  <label for="confirmPassword">Confirm Password:
-    <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" required minlength="8" maxlength="31"><br>
-
-  
 
   <!-- Confirm Password error msg -->
   <div *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)" class="errDiv2">
-      <div *ngIf="confirmPassword?.hasError('required')" class="err">
-          Confirm Password must be required
-      </div>
-      
-      <div *ngIf="confirmPassword?.errors?.['passwordMismatch']" class="err2">
-          Passwords do not match !!!
-      </div>
+    <div *ngIf="confirmPassword?.errors?.['required']" class="err">
+      Confirm Password must be required
+    </div>
+
+    <div *ngIf="confirmPassword?.errors?.['passwordMismatch']" class="err2">
         
+      Passwords do not match !!!
+    </div>
   </div> 
-  </label>
+</label>
+
   
 
   <div class="button-container">
@@ -134,8 +133,9 @@
 
 </form>
 
-  <br>
 <br>
+<br>
+
 </div>
 
 

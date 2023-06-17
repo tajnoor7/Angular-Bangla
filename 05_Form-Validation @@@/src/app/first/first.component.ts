@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
-export interface User {
+
+export interface Person {
   firstName: string;
   lastName: string;
   email: string;
@@ -29,7 +30,8 @@ function matchPasswordValidator(passwordKey: string): ValidatorFn {
 
 
 export class FirstComponent implements OnInit {
-  user: User;
+  // user: User;
+  person: Person;
 
 
   //User name Validators for "First Name" & "Last Name"
@@ -48,13 +50,13 @@ export class FirstComponent implements OnInit {
   ];
 
   constructor() {
-    this.user = {} as User;
+    this.person = {} as Person;
     this.myForm = new FormGroup({
-      firstName: new FormControl(this.user.firstName, this.nameValidators),
-      lastName: new FormControl(this.user.lastName, this.nameValidators),
-      email: new FormControl(this.user.email, [Validators.required, Validators.email]),
-      password: new FormControl(this.user.password, this.passwordValidators),
-      confirmPassword: new FormControl(this.user.confirmPassword, [
+      firstName: new FormControl(this.person.firstName, this.nameValidators),
+      lastName: new FormControl(this.person.lastName, this.nameValidators),
+      email: new FormControl(this.person.email, [Validators.required, Validators.email]),
+      password: new FormControl(this.person.password, this.passwordValidators),
+      confirmPassword: new FormControl(this.person.confirmPassword, [
         ...this.passwordValidators,
         matchPasswordValidator('password') // Add custom validator to check for password match
       ])
