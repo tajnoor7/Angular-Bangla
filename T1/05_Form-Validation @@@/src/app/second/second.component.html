@@ -16,35 +16,40 @@
 
 
   <!-- First Name -->
-  <label for="firstName">First Name:
-    <input type="text" id="firstName" name="firstName" formControlName="firstName" required minlength="3" maxlength="31" forbiddenNameValidator><br>
+  <label for="lastName">First Name:
+    
+    <input type="text" id="firstName" name="firstName" formControlName="firstName"
+     required minlength="3" maxlength="31" forbiddenNameValidator 
+     [class.error]="firstName?.invalid && (firstName?.dirty || firstName?.touched)"><br>
 
-     <!-- First Name error msg -->
+  <!-- Last Name error msg -->
   <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
       <div *ngIf="firstName?.hasError('required')" class="err">
-          First Name must be required
+          Last Name must be required
       </div>
 
       <div *ngIf="firstName?.hasError('forbiddenName')" class="err">
-        First Name as "{{firstName?.errors?.['forbiddenName'].value}}" not allow
+        Last Name as "{{firstName?.errors?.['forbiddenName'].value}}" not allow
     </div>
 
-
       <div *ngIf="firstName?.hasError('minlength')" class="err">
-          First Name must be atlest 3 characters
+          Last Name must be atlest 3 characters
       </div>
 
       <div *ngIf="firstName?.hasError('maxlength')" class="err">
-          First Name not more than 30 characters
+          Last Name not more than 30 characters
       </div>
-  </div>  
+  </div> 
   </label>
   
 
 
   <!-- Last Name -->
   <label for="lastName">Last Name:
-    <input type="text" id="lastName" name="lastName" formControlName="lastName" required minlength="3" maxlength="31" forbiddenNameValidator><br>
+    
+    <input type="text" id="lastName" name="lastName" formControlName="lastName"
+     required minlength="3" maxlength="31" forbiddenNameValidator 
+     [class.error]="lastName?.invalid && (lastName?.dirty || lastName?.touched)"><br>
 
   <!-- Last Name error msg -->
   <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
@@ -69,7 +74,8 @@
 
   <!-- Email -->
   <label for="email">Email:
-    <input type="email" id="email" name="email" formControlName="email" required email><br>
+    <input type="email" id="email" name="email" formControlName="email" required 
+    email [class.error]="email?.invalid && (email?.dirty || email?.touched)"><br>
 
   <!-- Email error msg -->
   <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
@@ -87,7 +93,8 @@
 
   <!-- Password -->
   <label for="password">Password:
-    <input type="password" id="password" name="password" formControlName="password" required minlength="8" maxlength="31"><br>
+    <input type="password" id="password" name="password" formControlName="password" required 
+    minlength="8" maxlength="31" [class.error]="password?.invalid && (password?.dirty || password?.touched)"><br>
 
 
   <!-- Password error msg -->
@@ -119,7 +126,8 @@
 
   <!-- Confirm Password -->
   <label for="confirmPassword">Confirm Password:
-    <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" required minlength="8" maxlength="31"><br>
+    <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" required 
+    minlength="8" maxlength="31" [class.error]="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)"><br>
 
   
 

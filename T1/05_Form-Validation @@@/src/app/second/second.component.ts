@@ -45,6 +45,7 @@ export class SecondComponent implements OnInit {
     forbiddenNameValidator(/password/),
     forbiddenNameValidator(/Password/)
   ];
+  
 
   //Password Validators for "Password" & "Confirm Password"
   passwordValidators = [

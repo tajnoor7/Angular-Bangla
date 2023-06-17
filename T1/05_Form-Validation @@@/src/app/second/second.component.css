@@ -98,13 +98,20 @@ button:hover{
     font-size: 14px;
     /* margin-top: -8px; */
     margin-top: auto;
-    margin-left: 5px;
+    margin-left: auto;
+    border-color: red;
   }
+  .error {
+    border-color: red;
+    color: red;
+  }
+  
 
   .err2 {
     color: red;
     font-size: 14px;
     margin-top: 5px;
+    
 }
   /* .green-circle {
     width: 10px;
@@ -174,6 +181,14 @@ input[type="password"] {
     box-sizing: border-box;
     margin-bottom: 10px;
 }
+
+input[type="text"].error,
+input[type="email"].error,
+input[type="password"].error {
+    border-color: red;
+    /* border-style: dotted; */
+}
+
 
 input[type="submit"] {
     width: 100%;
