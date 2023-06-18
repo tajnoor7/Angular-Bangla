@@ -1,0 +1,58 @@
+<div style="display: flex; justify-content: center; gap: 10px;">
+    <button (click)="storage()">Storage</button>
+    <button (click)="display()">Display</button>
+</div><br>
+
+
+<!-- Form -->
+<form [formGroup]="myForm">
+
+    <label for="firstName">First Name:
+        <input type="text" formControlNam="firstName">
+    </label><br><br>
+
+    <label for="lastName">Last Name:
+        <input type="text" formControlNam="lastName">
+    </label>
+    
+</form>
+
+
+
+
+
+
+
+
+
+<!-- <div>
+    <h1>Array</h1>
+
+   
+
+    <ul>
+        <li *ngFor="let item of nm">
+            <p>
+                {{item}}
+            </p>
+        </li>
+    </ul>
+
+</div><br><br>
+
+
+
+<div>
+    <h1>List Array</h1>
+
+   
+
+    <ul>
+        <li *ngFor="let msg of ls?.list">
+            <p>
+                {{msg.id}} {{msg.body}}
+            </p>
+        </li>
+    </ul>
+
+</div> -->
