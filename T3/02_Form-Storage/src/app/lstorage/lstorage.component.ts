@@ -88,11 +88,15 @@ export class LstorageComponent implements OnInit {
 
 
   storage(){
-    localStorage.setItem('messages', JSON.stringify(this.messages));
+    // localStorage.setItem('messages', JSON.stringify(this.messages));
 
-    localStorage.setItem('names', JSON.stringify(this.names)); 
+    // localStorage.setItem('names', JSON.stringify(this.names)); 
   }
 
+
+  onSubmit(){
+    localStorage.setItem('formData', JSON.stringify(this.myForm.value));
+  }
   
 
 }

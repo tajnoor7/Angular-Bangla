@@ -5,17 +5,22 @@
 
 
 <!-- Form -->
-<form [formGroup]="myForm">
+<div>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
 
-    <label for="firstName">First Name:
-        <input type="text" formControlNam="firstName">
-    </label><br><br>
-
-    <label for="lastName">Last Name:
-        <input type="text" formControlNam="lastName">
-    </label>
+        <label for="firstName">First Name:
+            <input type="text" formControlName="firstName">
+        </label><br><br>
     
-</form>
+        <label for="lastName">Last Name:
+            <input type="text" formControlName="lastName">
+        </label>
+    
+        <br><br><button type="submit">Submit</button>
+        
+    </form>
+</div>
+
 
 
 
