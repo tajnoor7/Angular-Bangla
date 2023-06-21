@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class="todo-list">
+
+    <h1>Todo List</h1>
+
+    <div>
+      <input [(ngModel)]="todo.Title" type="text" placeholder="Add a new task...">
+      <button [disabled]="!todo.Title" (click)="addTodo()" type="submit">Add</button>
+    </div>
+
+    <ul *ngFor="let item of todolist">
+      <li>
+        <label for="task3"> {{item.Title}} </label>
+        <i class="fa fa-pancil"></i>
+        <i class="fa fa-times"></i>
+      </li>
+    </ul>
+
+  </div>
+
+
+</div>
