@@ -14,25 +14,45 @@ import { FormsModule } from '@angular/forms';
 export class AppComponent {
   todolist: Todo []=[];
 
-  todo: Todo = {
-    Title: '',
+  todo: Todo = this.initTodo;
+
+  get initTodo():Todo {
+    return{
+      Title: '',
     Id: null
+    }
   }
 
    
   addTodo(): void {
     console.log(this.todo);
 
-    this.todo.Id = this.todolist.length +1;  //incresing Id number ++
+    if(this.todo.Id){
+      this.todolist = this.todolist.map(o => {
+        if(o.Id == this.todo.Id){
+          o.Title = this.todo.Title;
+        }
+        return o;
+      })
+    }
+    else{
+      this.todo.Id = Date.now();  //incresing Id number ++
+      this.todolist.push({...this.todo});  //push to todo list
+    }
 
-    this.todolist.push({...this.todo});  //push to todo list
-
+    
     console.log(this.todolist)
 
-    this.todo = {
-      Title: '',
-      Id: null
-    }
+    this.todo = this.initTodo;
+  }
+
+
+  editTodo(todo: Todo): void {
+    this.todo = {...todo};
+  }
+
+  deleteTodo(id:number):void {
+    this.todolist = this.todolist.filter(o=> o.Id!=id)
   }
 
 

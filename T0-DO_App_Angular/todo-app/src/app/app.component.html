@@ -6,14 +6,15 @@
 
     <div>
       <input [(ngModel)]="todo.Title" type="text" placeholder="Add a new task...">
-      <button [disabled]="!todo.Title" (click)="addTodo()" type="submit">Add</button>
+      <button [disabled]="!todo.Title" (click)="addTodo()" type="submit"> {{todo.Id?'Update':'Add'}} </button>
     </div>
 
     <ul *ngFor="let item of todolist">
       <li>
         <label for="task3"> {{item.Title}} </label>
-        <i class="fa fa-pancil"></i>
-        <i class="fa fa-times"></i>
+
+        <i (click)="editTodo(item)" class="fa fa-pencil"></i>
+        <i (click)="deleteTodo(item.Id)" class="fa fa-times"></i>
       </li>
     </ul>
 

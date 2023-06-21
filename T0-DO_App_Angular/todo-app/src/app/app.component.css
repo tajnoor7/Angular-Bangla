@@ -27,14 +27,15 @@
     width: 400px;
     background-color: white;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    min-height: 500px;
   }
 
   .todo-list h1 {
     text-align: center;
     margin: 0;
     padding: 20px;
-    background-color: #4285f4;
+    background-color: #7ba6ec;
     color: white;
     border-radius: 5px 5px 0 0;
   }
