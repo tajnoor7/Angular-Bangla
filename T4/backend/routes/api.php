@@ -20,7 +20,7 @@ Route::get('/books', function(){
     return BookResource::collection(Book::all());
 });
 
-Route::get('/books/{id}', function($id){
+Route::get('/book/{id}', function($id){
     return new BookResource(Book::findOrFail($id));
 });
 

@@ -53,7 +53,7 @@ class BookController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return Book::find($id);
     }
 
     /**
