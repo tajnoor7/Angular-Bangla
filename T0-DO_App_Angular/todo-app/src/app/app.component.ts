@@ -40,7 +40,6 @@ export class AppComponent {
       this.todolist.push({...this.todo});  //push to todo list
     }
 
-    
     console.log(this.todolist)
 
     this.todo = this.initTodo;
@@ -51,6 +50,7 @@ export class AppComponent {
     this.todo = {...todo};
   }
 
+  
   deleteTodo(id:number):void {
     this.todolist = this.todolist.filter(o=> o.Id!=id)
   }
