@@ -68,15 +68,35 @@ class BookController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        //
+{
+    if (Book::where('id', $id)->exists()) {
+        $book = Book::find($id);
+        $book->title = $request->title;
+        $book->author = $request->author; // Corrected typo here
+        $book->publisher = $request->publisher;
+        $book->save();
+        return response()->json([
+            'message' => 'Book Record Updated Successfully'
+        ], 200);
+    } else {
+        return response()->json([
+            'message' => 'Book Record Not Found'
+        ], 404);
     }
+}
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        if (Book::where('id', $id)->exists()) {
+            $book = Book::find($id);
+            $book->delete();
+            return response()->json([
+                'message' => 'Book Record Deleted Successfully'
+            ], 200);
+        }
     }
 }
